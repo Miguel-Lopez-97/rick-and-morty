@@ -1,0 +1,14 @@
+ol {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 35vw;
+}
+
+li a {
+  text-decoration: none;
+  font-size: 2.3vw;
+  font-weight: bold;
+  color: antiquewhite;
+}

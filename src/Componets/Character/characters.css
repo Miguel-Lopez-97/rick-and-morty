@@ -1,0 +1,25 @@
+#articleCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100vw;
+}
+#articleCharacters button {
+  background: #eb94d0;
+  border-radius: 28px;
+  color: #fafafa;
+  font-family: Arial;
+  font-size: 27px;
+  padding: 19px;
+  text-decoration: none;
+  text-shadow: 3px 2px 1px #9daef5;
+  height: 15vh;
+  margin: 2vw;
+  align-self: center;
+  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+}
+#articleCharacters button:hover{
+    text-decoration: none;
+    background: #2079b0;
+    background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
+}

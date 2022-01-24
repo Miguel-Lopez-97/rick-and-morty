@@ -1,0 +1,19 @@
+header {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  height: 30vh;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+header .banner {
+  display: flex;
+  height: 95%;
+  width: auto;
+}
+header img {
+  height: 100%;
+  width: auto;
+}
+
+
