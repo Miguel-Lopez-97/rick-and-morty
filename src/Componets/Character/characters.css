@@ -24,3 +24,8 @@
     background: #2079b0;
     background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
 }
+#articleCharacters .buttonFilter{
+  display: flex;
+  width: 99vw;
+  justify-content: space-evenly;
+}

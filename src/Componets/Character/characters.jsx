@@ -136,42 +136,42 @@ export default Characters;
  */
 
 function Characters() {
-  const [character, setCharacter] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  const [info, setInfo] = useState([]);
 
+  let url = "https://rickandmortyapi.com/api/character";
+
+  const getApi = (url) => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => {
+        setInfo(json.info)
+        setCharacters(json.results)
+      });
+  };
+
+  const onPrevious = () => {
+    getApi(info.prev);
+  };
+
+  const onNext = () => {
+    getApi(info.next);
+  };
+  const Filter0 = () => {
+    getApi("https://rickandmortyapi.com/api/character/?gender=male");
+  };
+  const Filter1 = () => {
+    getApi("https://rickandmortyapi.com/api/character/?gender=female");
+  };
+  const Filter2 = () => {
+    getApi("https://rickandmortyapi.com/api/character/?gender=genderless");
+  };
+  const Filter3 = () => {
+    getApi("https://rickandmortyapi.com/api/character/?gender=unknow");
+  };
   useEffect(() => {
-    let url = "https://rickandmortyapi.com/api/character";
-    let urlNext;
-    let urlPrev;
-    const getApi = async (url) => {
-      fetch(url)
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json);
-          console.log(json.results);
-          json.results.forEach((el) => {
-            let characterNew = {
-              id: el.id,
-              name: el.name,
-              avatar: el.image,
-              status: el.status,
-              specie: el.species,
-              gender: el.gender,
-              origin: el.origin.name,
-            };
-            setCharacter(
-              (prev) => [...prev, characterNew],
-              console.log(characterNew)
-            );
-          });
-          urlNext = json.info.next;
-          urlPrev = json.info.prev;
-          console.log(urlNext, urlPrev);
-        });
-    };
     getApi(url);
-
-  }, [],
-  );
+  }, []);
 
   return (
     <article
@@ -181,19 +181,27 @@ function Characters() {
           "radial-gradient(circle, rgba(38,145,187,1) 40%, rgba(163,5,7,1) 70%)",
       }}
     >
-      {character.map((el) => (
+      <div className="buttonFilter">
+      <Button name={"Male"} onChange={Filter0} Pagination="true" />
+      <Button name={"Female"} onChange={Filter1} Pagination="true" />
+      <Button name={"Genderless"} onChange={Filter2} Pagination="true" />
+      <Button name={"Unknown??"} onChange={Filter3} Pagination="true" />
+      </div>
+      {characters.map((character) => {
+      return(
         <CharacterCard
-          key={el.id}
-          name={el.name}
-          avatar={el.avatar}
-          status={el.status}
-          specie={el.specie}
-          gender={el.gender}
-          origin={el.origin}
+          key={character.id}
+          name={character.name}
+          avatar={character.image}
+          status={character.status}
+          specie={character.species}
+          gender={character.gender}
+          origin={character.origin.name}
         />
-      ))}
-      <button onClick={}>Antes</button>
-      <button onClick={}>Siguiente</button>
+      )})}
+      
+      <Button name={"Anterior"} Pagination={info.prev} onChange={onPrevious} />
+      <Button name={"Siguiente"} Pagination={info.next} onChange={onNext} />
     </article>
   );
 }

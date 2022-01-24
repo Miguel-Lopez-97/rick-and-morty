@@ -1,11 +1,14 @@
-/* import './button.css'
+import './button.css'
 
 function Button(props){
     
-    const {name, changeFunction(), url} = props;
-
+    const {name, onChange, Pagination} = props;
+    const handleChange = () => {
+        onChange()
+    }
     return(
-        <button onClick={changeFuction(url)}>{name}</button>
+    <>{Pagination?<button onClick={handleChange}>{name}</button>:null}
+    </>
     );
 }
-export default Button */
+export default Button
