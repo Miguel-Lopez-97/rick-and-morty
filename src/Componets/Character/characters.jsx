@@ -3,6 +3,7 @@ import "./characters.css";
 import CharacterCard from "./character/character";
 /* import { Morty, CharacterList } from "./characters-list"; */
 import { characterList } from "./characters-list";
+import Button from "./button/button";
 
 /* function Characters(){
     return(
@@ -135,44 +136,106 @@ export default Characters;
  */
 
 function Characters() {
-    const [character, setCharacter] = useState([]);
-  
-    useEffect(() => {
+  const [character, setCharacter] = useState([]);
+
+  useEffect(() => {
     let url = "https://rickandmortyapi.com/api/character";
     let urlNext;
     let urlPrev;
+    const getApi = async (url) => {
+      fetch(url)
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json);
+          console.log(json.results);
+          json.results.forEach((el) => {
+            let characterNew = {
+              id: el.id,
+              name: el.name,
+              avatar: el.image,
+              status: el.status,
+              specie: el.species,
+              gender: el.gender,
+              origin: el.origin.name,
+            };
+            setCharacter(
+              (prev) => [...prev, characterNew],
+              console.log(characterNew)
+            );
+          });
+          urlNext = json.info.next;
+          urlPrev = json.info.prev;
+          console.log(urlNext, urlPrev);
+        });
+    };
+    getApi(url);
+
+  }, [],
+  );
+
+  return (
+    <article
+      id="articleCharacters"
+      style={{
+        background:
+          "radial-gradient(circle, rgba(38,145,187,1) 40%, rgba(163,5,7,1) 70%)",
+      }}
+    >
+      {character.map((el) => (
+        <CharacterCard
+          key={el.id}
+          name={el.name}
+          avatar={el.avatar}
+          status={el.status}
+          specie={el.specie}
+          gender={el.gender}
+          origin={el.origin}
+        />
+      ))}
+      <button onClick={}>Antes</button>
+      <button onClick={}>Siguiente</button>
+    </article>
+  );
+}
+
+export default Characters;
+
+/* function Characters() {
+    const [character, setCharacter] = useState([]);
+  
+    useEffect(() => {
+      let url = "https://rickandmortyapi.com/api/character";
+      let urlNext;
+      let urlPrev;
       const getApi = async (url) => {
         fetch(url)
           .then((res) => res.json())
-          .then((json) =>{
-              console.log(json)
-              console.log(json.results)
-              json.results.forEach((el) => {
-                  let characterNew = {
-                      id: el.id,
-                      name: el.name,
-                      avatar: el.image,
-                      status: el.status,
-                      specie: el.species,
-                      gender: el.gender,
-                      origin: el.origin.name}
-                      setCharacter(prev=>[...prev, characterNew],
-                      console.log(characterNew))
-              })
-              urlNext = json.info.next
-              urlPrev = json.info.prev
-              console.log(urlNext, urlPrev)
+          .then((json) => {
+            console.log(json);
+            console.log(json.results);
+            json.results.forEach((el) => {
+              let characterNew = {
+                id: el.id,
+                name: el.name,
+                avatar: el.image,
+                status: el.status,
+                specie: el.species,
+                gender: el.gender,
+                origin: el.origin.name,
+              };
+              setCharacter(
+                (prev) => [...prev, characterNew],
+                console.log(characterNew)
+              );
+            });
+            urlNext = json.info.next;
+            urlPrev = json.info.prev;
+            console.log(urlNext, urlPrev);
           });
       };
-      getApi(url);},
-      [])
-      
-      
-    const nextPage = (url, urlNext, getApi) =>{
-        url=urlNext
-        getApi(url)}
-    
-
+      getApi(url);
+    }, []);
+  
     return (
       <article
         id="articleCharacters"
@@ -181,22 +244,21 @@ function Characters() {
             "radial-gradient(circle, rgba(38,145,187,1) 40%, rgba(163,5,7,1) 70%)",
         }}
       >
-        { character.map((el) => (
-            <CharacterCard
-              key={el.id}
-              name={el.name}
-              avatar={el.avatar}
-              status={el.status}
-              specie={el.specie}
-              gender={el.gender}
-              origin={el.origin}
-            />
-          ))}
-          <button>Anterior</button>
-          <button>Siguiente</button>
+        {character.map((el) => (
+          <CharacterCard
+            key={el.id}
+            name={el.name}
+            avatar={el.avatar}
+            status={el.status}
+            specie={el.specie}
+            gender={el.gender}
+            origin={el.origin}
+          />
+        ))}
+        <Button name={"Anterior"} url={useEffect.urlPrev} ChangeFunction={useEffect.getApi()}/>
+        <Button name={"Siguiente"} url={useEffect.urlNext} ChangeFunction={useEffect.getApi()}/>
       </article>
     );
   }
   
-  export default Characters;
-  
+  export default Characters; */
