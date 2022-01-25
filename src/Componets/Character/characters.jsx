@@ -4,6 +4,7 @@ import CharacterCard from "./character/character";
 /* import { Morty, CharacterList } from "./characters-list"; */
 import { characterList } from "./characters-list";
 import Button from "./button/button";
+import SearchBar from "./SearchBar";
 
 /* function Characters(){
     return(
@@ -169,6 +170,11 @@ function Characters() {
   const Filter3 = () => {
     getApi("https://rickandmortyapi.com/api/character/?gender=unknow");
   };
+
+  const FilterName = (name) => {
+    getApi("https://rickandmortyapi.com/api/character/?name="+name);
+  };
+
   useEffect(() => {
     getApi(url);
   }, []);
@@ -186,6 +192,7 @@ function Characters() {
       <Button name={"Female"} onChange={Filter1} Pagination="true" />
       <Button name={"Genderless"} onChange={Filter2} Pagination="true" />
       <Button name={"Unknown??"} onChange={Filter3} Pagination="true" />
+      <SearchBar  onChange={FilterName}/>
       </div>
       {characters.map((character) => {
       return(

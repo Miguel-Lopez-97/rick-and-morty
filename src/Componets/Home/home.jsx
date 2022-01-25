@@ -2,7 +2,7 @@ import React from 'react';
 
 import './home.css'
 
-export function Home(){
+function Home(){
     return(
         <article id='principalArticle'>
             <div className='image'>
@@ -18,4 +18,4 @@ export function Home(){
         </article>
     );
 }
-
+export default Home

@@ -1,18 +1,9 @@
-/* export const Morty= JSON.parse(`{
-            "key":2,
-            "name":"Morty Smith",
-            "avatar":"https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-            "status":"Alive",
-            "specie":"Human",
-            "gender":"Male",
-            "origin":"Earth"}`); */
-
 export const Rick= JSON.parse(`{
                 "key":1,
                 "name":"Rick Sanchez",
                 "avatar":"https://rickandmortyapi.com/api/character/avatar/1.jpeg",
                 "status":"Alive",
-                "specie":"Human",
+                "species":"Human",
                 "gender":"Male",
                 "origin":{
                     "name": "Earth",
@@ -24,7 +15,7 @@ export const Summer= JSON.parse(`{
                     "name":"Summer Smith",
                     "avatar":"https://rickandmortyapi.com/api/character/avatar/3.jpeg",
                     "status":"Alive",
-                    "specie":"Human",
+                    "species":"Human",
                     "gender":"Female",
                     "origin":{
                         "name": "Earth",
@@ -36,7 +27,7 @@ export const Morty= JSON.parse(`{
                         "name":"Morty Smith",
                         "avatar":"https://rickandmortyapi.com/api/character/avatar/2.jpeg",
                         "status":"Alive",
-                        "specie":"Human",
+                        "species":"Human",
                         "gender":"Male",
                         "origin":{
                             "name": "Earth",
@@ -48,7 +39,7 @@ export const Armagheadon= JSON.parse(`{
                             "name":"Armagheadon",
                             "avatar":"https://rickandmortyapi.com/api/character/avatar/24.jpeg",
                             "status":"Alive",
-                            "specie":"Alien",
+                            "species":"Alien",
                             "gender":"Male",
                             "origin":{
                                 "name": "Signus 5 Expanse",
@@ -59,4 +50,4 @@ export const Armagheadon= JSON.parse(`{
 
 export default CharacterList; */
 
-export var characterList = [Rick, Morty, Summer, Armagheadon]
+export var characterList = [Rick, Morty, Summer]
