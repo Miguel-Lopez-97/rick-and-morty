@@ -60,12 +60,55 @@ export default Character; */
   
   export default CharacterCard; */
 
+  /* function CharacterCard(props) {
+
+    const {name, status, specie, gender, origin, avatar}=props;
+    const color={
+      Male:"#76f8d2",
+      Female:"#f8769c",
+      Genderless:"#769cf8",
+      Unknown:"#f8d276",
+    };
+    return (
+      <div className="characterCard" style={{backgroundColor:color[gender]}}>
+        <div className="characterImage">
+          <img src={avatar} alt={'image '+name}/>
+        </div>
+        <div className="characterInfo">
+          <h1>{name}</h1>
+          <h3>{status}</h3>
+          <h3>{specie}</h3>
+          <p>{gender}</p>
+          <p>{origin}</p>
+        </div>
+      </div>
+    );
+  }
+  
+  export default CharacterCard; */
+
   function CharacterCard(props) {
 
     const {name, status, specie, gender, origin, avatar}=props;
-
+    const color={
+      Male:"#76f8d2",
+      Female:"#f8769c",
+      Genderless:"#769cf8",
+      unknown:"#f8d276",
+      Alive: "#ffd700",
+      Dead: "#000000",
+      unknown:"#c2c2c2"
+    };
+    const backgroundColor2 = color[gender];
+    const backgroundColor1 = color[status];
+    const backgroundColorMix =
+    "linear-gradient(135deg," +
+    backgroundColor1 +
+    " 15%, " +
+    backgroundColor2 +
+    " 70%)";
     return (
-      <div className="characterCard">
+      <div className="characterCard" style={{background: backgroundColorMix}}>
         <div className="characterImage">
           <img src={avatar} alt={'image '+name}/>
         </div>

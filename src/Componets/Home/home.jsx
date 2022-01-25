@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './home.css'
 
-function Home(){
+export function Home(){
     return(
         <article id='principalArticle'>
             <div className='image'>
@@ -17,4 +19,3 @@ function Home(){
     );
 }
 
-export default Home
