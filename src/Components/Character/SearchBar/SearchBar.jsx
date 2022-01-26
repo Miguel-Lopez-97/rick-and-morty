@@ -12,13 +12,16 @@ export default function SearchBar ({ onChange }) {
       }}
     >
       <input
+        id="inputCharacter"
         type='text'
         placeholder='Name...'
         value={name}
-        onChange={event => setName(event.target.value)}
+        onChange={event => {
+          setName(event.target.value)}}
+        className='textInput'
       />
 
-      <input type='submit' value='Add' />
+      <input type='submit' value='Add' className='buttonInput'/>
     </form>
   )
 }

@@ -139,17 +139,17 @@ export default Characters;
 function Characters() {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState([]);
+  const [filterButtons, setFilterButtons] = useState([])
 
   let url = "https://rickandmortyapi.com/api/character";
 
-  const getApi = (url) => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        setInfo(json.info)
-        setCharacters(json.results)
-      });
-  };
+  const getApi = async (url) =>{
+    const res = await fetch(url);
+    const characterJSON = await res.json();
+    const { results, info } = await characterJSON
+    setCharacters(results)
+    setInfo(info)
+  }
 
   const onPrevious = () => {
     getApi(info.prev);
@@ -172,7 +172,14 @@ function Characters() {
   };
 
   const FilterName = (name) => {
-    getApi("https://rickandmortyapi.com/api/character/?name="+name);
+    fetch("https://rickandmortyapi.com/api/character/?name="+name)
+    .then((res) => {
+      if (res.ok) 
+      {getApi("https://rickandmortyapi.com/api/character/?name="+name)}
+      else {alert('Character not found')}})};
+
+  const onFilter = () => {
+    getApi("https://rickandmortyapi.com/api/character")
   };
 
   useEffect(() => {
@@ -187,12 +194,13 @@ function Characters() {
           "radial-gradient(circle, rgba(38,145,187,1) 40%, rgba(163,5,7,1) 70%)",
       }}
     >
-      <div className="buttonFilter">
-      <Button name={"Anterior"} Pagination={info.prev} onChange={onPrevious} />
-      <Button name={"Siguiente"} Pagination={info.next} onChange={onNext} />
+      <div className="buttonNav">
+      <Button name={"Previous Page"} Pagination={info.prev} onChange={onPrevious} />
+      <Button name={"Next Page"} Pagination={info.next} onChange={onNext} />
       <SearchBar  onChange={FilterName}/>
+      <Button name={"No Filter"} Pagination={true} onChange={onFilter} />
       </div>
-      <div className="buttonFilter">
+      <div className="buttonNav">
       <Button name={"Male"} onChange={Filter0} Pagination="true" />
       <Button name={"Female"} onChange={Filter1} Pagination="true" />
       <Button name={"Genderless"} onChange={Filter2} Pagination="true" />
@@ -210,9 +218,9 @@ function Characters() {
           origin={character.origin.name}
         />
       )})}
-      <div className="buttonFilter">
-      <Button name={"Anterior"} Pagination={info.prev} onChange={onPrevious} />
-      <Button name={"Siguiente"} Pagination={info.next} onChange={onNext} />
+      <div className="buttonNav">
+      <Button name={"Previous Page"} Pagination={info.prev} onChange={onPrevious} />
+      <Button name={"Next Page"} Pagination={info.next} onChange={onNext} />
       </div>
     </article>
   );

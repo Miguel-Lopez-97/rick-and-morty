@@ -13,6 +13,7 @@
     min-width: 100px;
     min-height: 40px;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   #articleCharacters button:hover{
       text-decoration: none;

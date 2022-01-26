@@ -1,11 +1,26 @@
-button, input, select, textarea {
-    font-family : inherit;
-    font-size   : 100%;
-  }
 
-  input, textarea, select, button {
-    width : 150px;
-    margin: 0;}
+  input{
+  width: 150px;
+  height: 30px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+
+.textInput{  border: 0;
+  outline: none;
+  background-color: #dfe}
+
+.buttonInput{
+  
+  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  margin-left: 15px;
+}
 
 form {
     align-self: center;

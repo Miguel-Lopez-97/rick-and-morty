@@ -6,9 +6,10 @@
   justify-content: space-around;
 }
 
-#articleCharacters .buttonFilter{
+#articleCharacters .buttonNav{
   display: flex;
-  width: 99vw;
+  width: 95vw;
   justify-content: space-evenly;
+  justify-self: center;
   margin: 0;
 }
