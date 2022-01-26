@@ -94,10 +94,9 @@ export default Character; */
       Male:"#76f8d2",
       Female:"#f8769c",
       Genderless:"#769cf8",
-      unknown:"#f8d276",
+      Unknown:"#c2c2c2",
       Alive: "#ffd700",
-      Dead: "#000000",
-      unknown:"#c2c2c2"
+      Dead: "#000000"
     };
     const backgroundColor2 = color[gender];
     const backgroundColor1 = color[status];

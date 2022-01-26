@@ -138,51 +138,58 @@ export default Characters;
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
-  const [info, setInfo] = useState([])
+  const [info, setInfo] = useState([]);
+  const url = "https://rickandmortyapi.com/api/character";
 
-  let url = "https://rickandmortyapi.com/api/character";
-
-  const getApi = async (url) =>{
+  const fetchApi = async (url) => {
     const res = await fetch(url);
     const characterJSON = await res.json();
-    const { results, info } = await characterJSON
-    setInfo(info)
-    setCharacters(results)
-  }
-
-  const onPrevious = () => {
-    getApi(info.prev);
+    const { results, info } = await characterJSON;
+    setInfo(info);
+    setCharacters(results);
   };
 
   const onNext = () => {
-    getApi(info.next);
+    fetchApi(info.next);
+    console.log(info.next);
   };
-  const Filter0 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=MALE");
+
+  const onPrev = () => {
+    fetchApi(info.prev);
+    console.log(info.prev);
   };
-  const Filter1 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=FEMALE");
+
+  const onMale = () => {
+    fetchApi("https://rickandmortyapi.com/api/character/?gender=male");
   };
-  const Filter2 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=GENDERLESS");
+  const onFemale = () => {
+    fetchApi("https://rickandmortyapi.com/api/character/?gender=female");
   };
-  const Filter3 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=UNKNOW");
+  const onGenderless = () => {
+    fetchApi("https://rickandmortyapi.com/api/character/?gender=genderless");
+  };
+  const onUnknown = () => {
+    fetchApi("https://rickandmortyapi.com/api/character/?gender=unknown");
   };
 
   const FilterName = (name) => {
-    fetch("https://rickandmortyapi.com/api/character/?name="+name)
-    .then((res) => {
-      if (res.ok) 
-      {getApi("https://rickandmortyapi.com/api/character/?name="+name)}
-      else {alert('Character not found')}})};
+    fetch("https://rickandmortyapi.com/api/character/?name=" + name).then(
+      (res) => {
+        if (res.ok) {
+          fetchApi("https://rickandmortyapi.com/api/character/?name=" + name);
+        } else {
+          alert("Character not found");
+        }
+      }
+    );
+  };
 
   const onFilter = () => {
-    getApi("https://rickandmortyapi.com/api/character")
+    fetchApi("https://rickandmortyapi.com/api/character");
   };
 
   useEffect(() => {
-    getApi(url);
+    fetchApi(url);
   }, []);
 
   return (
@@ -193,33 +200,36 @@ function Characters() {
           "radial-gradient(circle, rgba(38,145,187,1) 40%, rgba(163,5,7,1) 70%)",
       }}
     >
-      <div className="buttonNav">
-      <Button name={"Previous Page"} Pagination={info.prev} onChange={onPrevious} />
-      <Button name={"Next Page"} Pagination={info.next} onChange={onNext} />
-      <SearchBar  onChange={FilterName}/>
-      <Button name={"No Filter"} Pagination={true} onChange={onFilter} />
+      <div className="buttonNav" id="ButtonTop">
+        <Button name="Prev" onChange={onPrev} Pagination={info.prev} />
+        <Button name="Next" onChange={onNext} Pagination={info.next} />
+        <SearchBar onChange={FilterName} />
+        <Button name={"No Filter"} Pagination={true} onChange={onFilter} />
       </div>
-      <div className="buttonNav">
-      <Button name={"Male"} onChange={Filter0} Pagination="true" />
-      <Button name={"Female"} onChange={Filter1} Pagination="true" />
-      <Button name={"Genderless"} onChange={Filter2} Pagination="true" />
-      <Button name={"Unknown??"} onChange={Filter3} Pagination="true" />
+      <div className="buttonNav" id="buttonMiddle">
+        <Button name="Filter Male" onChange={onMale} Pagination={true} />
+        <Button name="Filter Female" onChange={onFemale} Pagination={true} />
+        <Button name="F-Genderless" onChange={onGenderless} Pagination={true} />
+        <Button name="Filter Unknown" onChange={onUnknown} Pagination={true} />
       </div>
+      <div className="divCharacterList">
       {characters.map((character) => {
-      return(
-        <CharacterCard
-          key={character.id}
-          name={character.name}
-          avatar={character.image}
-          status={character.status}
-          specie={character.species}
-          gender={character.gender}
-          origin={character.origin.name}
-        />
-      )})}
-      <div className="buttonNav">
-      <Button name={"Previous Page"} Pagination={info.prev} onChange={onPrevious} />
-      <Button name={"Next Page"} Pagination={info.next} onChange={onNext} />
+        return (
+          <CharacterCard
+            key={character.id}
+            name={character.name}
+            avatar={character.image}
+            status={character.status}
+            specie={character.species}
+            gender={character.gender}
+            origin={character.origin.name}
+          />
+        );
+      })}
+      </div>
+      <div className="buttonNav" id="buttonButton">
+        <Button name="Prev" onChange={onPrev} Pagination={info.prev} />
+        <Button name="Next" onChange={onNext} Pagination={info.next} />
       </div>
     </article>
   );

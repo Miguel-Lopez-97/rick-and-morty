@@ -1,6 +1,6 @@
 #articleCharacters {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: auto;
   width: 100vw;
   justify-content: space-around;
@@ -8,8 +8,17 @@
 
 #articleCharacters .buttonNav{
   display: flex;
-  width: 95vw;
+  height: auto;
+  background-color: rgba(0, 255, 255,0.6);
+  width: 100vw;
   justify-content: space-evenly;
   justify-self: center;
   margin: 0;
+  padding: 0;
+}
+
+.divCharacterList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
