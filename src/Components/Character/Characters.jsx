@@ -138,7 +138,7 @@ export default Characters;
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
-  const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState([])
 
   let url = "https://rickandmortyapi.com/api/character";
 

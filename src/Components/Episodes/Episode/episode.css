@@ -1,0 +1,29 @@
+.episodeCard{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    width: 80vw;
+    height: auto;
+    margin:2vw;
+}
+.episodeInfo *{
+    margin: 0;
+    padding: 0;
+}
+.episodeInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.episodeCharacterCards{
+    display: flex;
+    background-color: brown;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#articleEpisodes .episodeCharacterCards .characterCard .characterInfo{
+    justify-content: center;
+}
