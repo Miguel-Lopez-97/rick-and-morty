@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './searchBar.css'
 
 export default function SearchBar ({ onChange }) {
   const [name, setName] = useState('')

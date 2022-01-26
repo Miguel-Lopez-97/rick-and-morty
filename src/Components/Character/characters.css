@@ -1,0 +1,14 @@
+#articleCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+#articleCharacters .buttonFilter{
+  display: flex;
+  width: 99vw;
+  justify-content: space-evenly;
+  margin: 0;
+}

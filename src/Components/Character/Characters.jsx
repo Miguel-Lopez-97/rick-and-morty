@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./characters.css";
-import CharacterCard from "./character/character";
+import CharacterCard from "./Character/character";
 /* import { Morty, CharacterList } from "./characters-list"; */
-import { characterList } from "./characters-list";
-import Button from "./button/button";
-import SearchBar from "./SearchBar";
+/* import { characterList } from "./characters-list"; */
+import Button from "./Button/button";
+import SearchBar from "./SearchBar/SearchBar";
 
 /* function Characters(){
     return(
@@ -188,11 +188,15 @@ function Characters() {
       }}
     >
       <div className="buttonFilter">
+      <Button name={"Anterior"} Pagination={info.prev} onChange={onPrevious} />
+      <Button name={"Siguiente"} Pagination={info.next} onChange={onNext} />
+      <SearchBar  onChange={FilterName}/>
+      </div>
+      <div className="buttonFilter">
       <Button name={"Male"} onChange={Filter0} Pagination="true" />
       <Button name={"Female"} onChange={Filter1} Pagination="true" />
       <Button name={"Genderless"} onChange={Filter2} Pagination="true" />
       <Button name={"Unknown??"} onChange={Filter3} Pagination="true" />
-      <SearchBar  onChange={FilterName}/>
       </div>
       {characters.map((character) => {
       return(
@@ -206,9 +210,10 @@ function Characters() {
           origin={character.origin.name}
         />
       )})}
-      
+      <div className="buttonFilter">
       <Button name={"Anterior"} Pagination={info.prev} onChange={onPrevious} />
       <Button name={"Siguiente"} Pagination={info.next} onChange={onNext} />
+      </div>
     </article>
   );
 }

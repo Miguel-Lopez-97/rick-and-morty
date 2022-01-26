@@ -3,14 +3,16 @@
     border-radius: 28px;
     color: #fafafa;
     font-family: Arial;
-    font-size: 27px;
-    padding: 19px;
+    font-size: 16px;
     text-decoration: none;
     text-shadow: 3px 2px 1px #1737b6;
-    height: 15vh;
-    margin: 2vw;
+    height: auto;
     align-self: center;
     background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+    width: auto;
+    min-width: 100px;
+    min-height: 40px;
+    margin-top: 10px;
   }
   #articleCharacters button:hover{
       text-decoration: none;

@@ -1,16 +1,23 @@
 import React from 'react';
-import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { render } from 'react-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Home from './Components/Home/Home';
+import Header from './Components/Header/Header'
+import Characters from './Components/Character/Characters';
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
-    <App />
+    <Routes>
+      <Route path='/' element={<Header />}>
+
+        <Route path='/' element={<Home />} />
+        <Route path='/characters' element={<Characters />} />
+        <Route path='*' element={<Navigate replace to='/' />} />
+
+      </Route>
+    </Routes>
   </BrowserRouter>,
   rootElement
 );
-
-reportWebVitals();

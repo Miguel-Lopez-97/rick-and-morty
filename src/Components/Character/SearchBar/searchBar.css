@@ -1,0 +1,12 @@
+button, input, select, textarea {
+    font-family : inherit;
+    font-size   : 100%;
+  }
+
+  input, textarea, select, button {
+    width : 150px;
+    margin: 0;}
+
+form {
+    align-self: center;
+}
