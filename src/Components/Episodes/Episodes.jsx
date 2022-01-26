@@ -8,7 +8,7 @@ export function Episodes(){
     const [episodes, setEpisodes] = useState([]); 
     const [info, setInfo] = useState([]);
 
-    const url = "https://rickandmortyapi.com/api/episode/?limit=1&offset=0"
+    const url = "https://rickandmortyapi.com/api/episode/"
 
     const fetchApi = async (url) =>{
     const res = await fetch(url);
