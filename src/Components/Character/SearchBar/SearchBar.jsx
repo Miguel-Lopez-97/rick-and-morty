@@ -4,13 +4,15 @@ import './searchBar.css'
 export default function SearchBar ({ onChange }) {
   const [name, setName] = useState('')
 
+const handleChange = event => {
+  event.preventDefault()
+  onChange(name)
+  setName("")  
+}
+
   return (
     <form
-      onSubmit={event => {
-        event.preventDefault()
-        onChange(name)
-      }}
-    >
+      onSubmit={handleChange}>
       <input
         id="inputCharacter"
         type='text'
@@ -21,7 +23,7 @@ export default function SearchBar ({ onChange }) {
         className='textInput'
       />
 
-      <input type='submit' value='Add' className='buttonInput'/>
+      <input type='submit' value='Add' className='buttonInput' disabled={name?"":"disable"}/>
     </form>
   )
 }

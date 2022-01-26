@@ -147,8 +147,8 @@ function Characters() {
     const res = await fetch(url);
     const characterJSON = await res.json();
     const { results, info } = await characterJSON
-    setCharacters(results)
     setInfo(info)
+    setCharacters(results)
   }
 
   const onPrevious = () => {
@@ -159,16 +159,16 @@ function Characters() {
     getApi(info.next);
   };
   const Filter0 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=male");
+    getApi("https://rickandmortyapi.com/api/character/?gender=MALE");
   };
   const Filter1 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=female");
+    getApi("https://rickandmortyapi.com/api/character/?gender=FEMALE");
   };
   const Filter2 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=genderless");
+    getApi("https://rickandmortyapi.com/api/character/?gender=GENDERLESS");
   };
   const Filter3 = () => {
-    getApi("https://rickandmortyapi.com/api/character/?gender=unknow");
+    getApi("https://rickandmortyapi.com/api/character/?gender=UNKNOW");
   };
 
   const FilterName = (name) => {
