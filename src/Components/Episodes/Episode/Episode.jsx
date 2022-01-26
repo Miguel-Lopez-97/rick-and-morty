@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CharacterCard from "../../Character/Character/character";
+import CharacterCard from "../../Characters/Character/character";
 import './episode.css';
 
 export function Episode(props) {

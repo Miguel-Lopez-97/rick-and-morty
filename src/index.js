@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header'
-import Characters from './Components/Character/Characters';
+import Characters from './Components/Characters/Characters';
 import { Episodes } from './Components/Episodes/Episodes';
 
 const rootElement = document.getElementById("root");

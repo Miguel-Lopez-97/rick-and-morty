@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Episode } from "./Episode/Episode";
-import Button from "../Character/Button/button";
+import Button from "../Characters/Button/button";
 import './episodes.css'
 
 export function Episodes(){
