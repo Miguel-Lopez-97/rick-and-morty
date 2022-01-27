@@ -6,8 +6,8 @@ export function Episode(props) {
     const { name, airDate, episode, charactersList } = props
     const [character, setCharacter] = useState([])
 
-    const apiMap = async (props) => {
-      props.map(async (items) => {
+    const apiMap = async () => {
+      charactersList.map(async (items) => {
         const res = await fetch(items);
         const characterJSON = await res.json();
         setCharacter((prevState) => [...prevState, characterJSON]);
@@ -15,8 +15,9 @@ export function Episode(props) {
     };
 
     useEffect(()=>{
-      apiMap(charactersList)
+      apiMap()
     }, []);
+
       return (
         <div className="episodeCard">
           <div className="episodeInfo">
