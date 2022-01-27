@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header'
@@ -9,7 +9,7 @@ import { Episodes } from './Components/Episodes/Episodes';
 
 const rootElement = document.getElementById("root");
 render(
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path='/' element={<Header />}>
 
@@ -20,6 +20,6 @@ render(
 
       </Route>
     </Routes>
-  </BrowserRouter>,
+  </HashRouter>,
   rootElement
 );
