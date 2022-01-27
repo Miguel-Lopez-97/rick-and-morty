@@ -89,17 +89,20 @@ export default Character; */
 
   function CharacterCard(props) {
 
-    const {name, status, specie, gender, origin, avatar}=props;
-    const color={
+    const {name, status, species, gender, origin, avatar}=props;
+    const colorGender={
       Male:"#76f8d2",
       Female:"#f8769c",
       Genderless:"#769cf8",
-      Unknown:"#c2c2c2",
+      unknown:"#f8d276"
+    };
+    const colorStatus={
+      unknown:"#c2c2c2",
       Alive: "#ffd700",
       Dead: "#000000"
     };
-    const backgroundColor2 = color[gender];
-    const backgroundColor1 = color[status];
+    const backgroundColor2 = colorGender[gender];
+    const backgroundColor1 = colorStatus[status];
     const backgroundColorMix =
     "linear-gradient(135deg," +
     backgroundColor1 +
@@ -114,7 +117,7 @@ export default Character; */
         <div className="characterInfo">
           <h1>{name}</h1>
           <h3>{status}</h3>
-          <h3>{specie}</h3>
+          <h3>{species}</h3>
           <p>{gender}</p>
           <p>{origin}</p>
         </div>

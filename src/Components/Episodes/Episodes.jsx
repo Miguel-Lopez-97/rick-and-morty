@@ -46,6 +46,10 @@ export function Episodes(){
                 charactersList={episode.characters}
             />
         ))}
+        <div className="buttonNav">
+      <Button name={"Previous Page"} Pagination={info.prev} onChange={onPrevious} />
+      <Button name={"Next Page"} Pagination={info.next} onChange={onNext} />
+      </div>
         </article>
     );
 }
