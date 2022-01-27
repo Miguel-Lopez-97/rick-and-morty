@@ -5,7 +5,7 @@ import './episode.css';
 export function Episode(props) {
     const { name, airDate, episode, charactersList, key } = props
     const [character, setCharacter] = useState([])
-    const [display, setDisplay] = useState(["none"])
+    const [display, setDisplay] = useState("none")
 
     const apiMap = async (url) => {
       url.map(async (items) => {
