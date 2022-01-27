@@ -10,10 +10,17 @@
     margin: 0;
     padding: 0;
 }
+.episodeHeadInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 .episodeInfo{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    width: 100%;
 }
 .episodeCharacterCards{
     display: flex;
