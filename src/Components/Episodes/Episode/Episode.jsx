@@ -6,8 +6,8 @@ export function Episode(props) {
     const { name, airDate, episode, charactersList } = props
     const [character, setCharacter] = useState([])
 
-    const apiMap = async () => {
-      charactersList.map(async (items) => {
+    const apiMap = async (url) => {
+      url.map(async (items) => {
         const res = await fetch(items);
         const characterJSON = await res.json();
         setCharacter((prevState) => [...prevState, characterJSON]);
@@ -15,7 +15,7 @@ export function Episode(props) {
     };
 
     useEffect(()=>{
-      apiMap()
+      apiMap(charactersList)
     }, [charactersList]);
 
       return (
@@ -31,7 +31,9 @@ export function Episode(props) {
                   name={item.name}
                   key={item.id}
                   avatar={item.image}
-                  origin={item.origin.name}/>
+                  origin={item.origin.name}
+                  gender={item.gender}
+                  status={item.status}/>
                 ))}
             </div>
         </div>
