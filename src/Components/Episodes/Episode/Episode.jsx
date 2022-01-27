@@ -16,7 +16,7 @@ export function Episode(props) {
 
     useEffect(()=>{
       apiMap()
-    }, []);
+    }, [charactersList]);
 
       return (
         <div className="episodeCard">
