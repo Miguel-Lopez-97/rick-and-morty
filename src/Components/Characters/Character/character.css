@@ -3,7 +3,7 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(188, 240, 182);
-    height: auto; min-height: 40vh;
+    height: auto; min-height: 150px;
     width: 30vw; min-width: 300px;
     border-radius: 5vh;
     -webkit-border-radius: 5vh;
@@ -38,4 +38,17 @@
     height: auto;
     justify-content: space-between;
     align-items: center;
+}
+
+.characterInfo p:last-child{
+    font-style: italic;
+}
+
+@media screen and (max-width:400px)
+{.characterCard{
+    min-width: 220px;
+}
+h1{
+    font-size: 16px;
+}
 }

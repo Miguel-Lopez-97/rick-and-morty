@@ -32,8 +32,8 @@ import "./character.css";
           <h1>{name}</h1>
           <h3>{status}</h3>
           <h3>{species}</h3>
-          <p>{gender}</p>
-          <p>{origin}</p>
+          <p>{gender==="unknown"?"gender: unknown":gender}</p>
+          <p>{origin==="unknown"?"origin: unknown":"Planet: "+origin}</p>
         </div>
       </div>
     );

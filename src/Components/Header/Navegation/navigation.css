@@ -12,3 +12,9 @@ li a {
   font-weight: bold;
   color: antiquewhite;
 }
+
+@media screen and (max-width: 780px){
+  ol {
+    width: 100vw;
+  }
+}

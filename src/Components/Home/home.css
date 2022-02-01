@@ -43,3 +43,29 @@
     font-size: 14px;
     padding: 1vw;
 }
+
+@media screen and (max-width:780px)
+{
+    #principalArticle{
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    #principalArticle .image{
+        display: flex;
+        width: 90vw;
+        height: 50vh;
+        margin-top: 2vw;
+    }
+    #principalArticle .image img{
+        width: auto;
+        max-width: 90%;
+        max-height: 90%;
+    }
+    
+    #principalArticle .description{
+        display: flex;
+        width: 90vw;
+        height: auto;
+    }
+}
